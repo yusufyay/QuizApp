@@ -13,4 +13,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="repositories\Repository\" />
+    <Folder Include="unitOfWork\" />
+  </ItemGroup>
+
 </Project>

@@ -1,14 +1,14 @@
 ﻿
 
-@model QuizApp.Dto.auth.LoginDto
+@model QuizApp.Dto.auth.RegisterDto
 <section>
     <div>
-        <h2>KULLANICI GIRIS</h2>
+        <h2>KULLANICI KAYIT</h2>
 
     </div>
-    <form action="/Auth/Login" method="post" >
+    <form action="/Auth/Register" method="post" >
         <input asp-for=UserName type="text" name ="Username" placeholder="Kullanıcı Adı"/>
         <input asp-for=Password type="password" name ="Password" placeholder="Şifre"/>
-        <input type="submit" value="GİRİŞ YAP" />       
+        <input type="submit" value="KAYIT OL" />       
     </form>
 </section>

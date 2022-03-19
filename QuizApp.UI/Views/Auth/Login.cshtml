@@ -1,0 +1,14 @@
+﻿
+
+@model QuizApp.Dto.auth.LoginDto
+<section>
+    <div>
+        <h2>KULLANICI GIRIS</h2>
+
+    </div>
+    <form action="/Auth/Login" method="post" >
+        <input asp-for=Username type="text" name ="Username" placeholder="Kullanıcı Adı"/>
+        <input asp-for=Password type="password" name ="Password" placeholder="Şifre"/>
+        <input type="submit" value="GİRİŞ YAP" />       
+    </form>
+</section>

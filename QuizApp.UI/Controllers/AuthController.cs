@@ -12,13 +12,27 @@ namespace QuizApp.UI.Controllers
         {
             _userManager = userManager;
         }
+
         public IActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult Login(LoginDto data)
+        public async Task<IActionResult> Login(LoginDto data)
         {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(data.UserName);
+                if (user == null)
+                {
+                    return View("Error");
+                }
+                var isCorrect = await _userManager.CheckPasswordAsync(user,data.Password);
+                 if(isCorrect) 
+                    _userManager.
+                    return RedirectToAction("Index","Admin");   
+            }
 
             return View();
         }
@@ -27,7 +41,6 @@ namespace QuizApp.UI.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> RegisterAsync( RegisterDto data)

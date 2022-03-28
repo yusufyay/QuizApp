@@ -9,10 +9,10 @@ namespace QuizApp.Dto.auth
 {
     public class LoginDto
     {
-        [Required]
+        [Required(ErrorMessage = "Lütfen kullanıcı adını düzgün giriniz!!!")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Lütfen harf,sayı ve özel karakterlerden oluşan bir şifre oluşturunuz!!!")]
         public string Password { get; set; }
 
     }

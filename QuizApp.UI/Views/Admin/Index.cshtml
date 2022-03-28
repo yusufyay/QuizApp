@@ -1,40 +1,9 @@
-﻿<h1>
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-    lorem lorem loremcvvv
-</h1>
+﻿
+@model List<QuizApp.Dto.article.ArticleDto>
+
+@foreach (var item in @Model)
+{
+    <h1>
+    @item.Title
+    </h1>
+}

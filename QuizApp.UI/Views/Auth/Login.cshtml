@@ -1,14 +1,19 @@
-﻿
-
-@model QuizApp.Dto.auth.LoginDto
+﻿@model QuizApp.Dto.auth.LoginDto
 <section>
     <div>
         <h2>KULLANICI GIRIS</h2>
 
     </div>
-    <form action="/Auth/Login" method="post" >
-        <input asp-for=UserName type="text" name ="Username" placeholder="Kullanıcı Adı"/>
-        <input asp-for=Password type="password" name ="Password" placeholder="Şifre"/>
-        <input type="submit" value="GİRİŞ YAP" />       
+    <form action="/Auth/Login" method="post">
+        <div style="display:flex;flex-direction:column; gap:5px">
+
+            <input asp-for=UserName type="text" name="Username" placeholder="Kullanıcı Adı" />
+            <span asp-validation-for=UserName style="color:red"> </span>
+
+            <input asp-for=Password type="password" name="Password" placeholder="Şifre" />
+            <span asp-validation-for=Password style="color:red"> </span>
+
+            <input type="submit" value="GİRİŞ YAP" />
+        </div>
     </form>
 </section>

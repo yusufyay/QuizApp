@@ -1,14 +1,19 @@
-﻿
-
-@model QuizApp.Dto.auth.RegisterDto
+﻿@model QuizApp.Dto.auth.RegisterDto
 <section>
     <div>
         <h2>KULLANICI KAYIT</h2>
 
     </div>
-    <form action="/Auth/Register" method="post" >
-        <input asp-for=UserName type="text" name ="Username" placeholder="Kullanıcı Adı"/>
-        <input asp-for=Password type="password" name ="Password" placeholder="Şifre"/>
-        <input type="submit" value="KAYIT OL" />       
+    <form action="/Auth/Register" method="post">
+        <div style="display:flex;flex-direction:column;gap:5px">
+
+            <input asp-for=UserName type="text" name="Username" placeholder="Kullanıcı Adı" />
+            <span asp-validation-for=UserName style="color:darkred"> </span>
+
+            <input asp-for=Password type="password" name="Password" placeholder="Şifre" />
+            <span asp-validation-for=Password style="color:darkred"> </span>
+
+            <input type="submit" value="KAYIT OL" />
+        </div>
     </form>
 </section>

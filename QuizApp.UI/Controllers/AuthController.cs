@@ -8,8 +8,10 @@ namespace QuizApp.UI.Controllers
     public class AuthController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
-        public AuthController(UserManager<IdentityUser> userManager)
+        private readonly SignInManager<IdentityUser> _signInManager;
+        public AuthController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)  
         {
+            _signInManager = signInManager;
             _userManager = userManager;
         }
 
@@ -23,15 +25,9 @@ namespace QuizApp.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByNameAsync(data.UserName);
-                if (user == null)
-                {
-                    return View("Error");
-                }
-                var isCorrect = await _userManager.CheckPasswordAsync(user,data.Password);
-                 if(isCorrect) 
-                    _userManager.
-                    return RedirectToAction("Index","Admin");   
+                var result = await _signInManager.PasswordSignInAsync(data.UserName, data.Password, false, false);
+                if (result.Succeeded)   return RedirectToAction("Index","Admin");
+
             }
 
             return View();
@@ -43,13 +39,14 @@ namespace QuizApp.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync( RegisterDto data)
+        public async Task<IActionResult> Register( RegisterDto data)
         {
             if(ModelState.IsValid)
             {
                 var newUser = new IdentityUser
                 {
                     UserName = data.UserName,
+                    
                 };
                 var isCreated = await _userManager.CreateAsync(newUser, data.Password); 
                 

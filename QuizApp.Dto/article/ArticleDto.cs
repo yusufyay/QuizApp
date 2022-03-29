@@ -9,5 +9,6 @@ namespace QuizApp.Dto.article
     public class ArticleDto
     {
         public string Title { get; set; }
+        public string Paragraph { get; set; }
     }
 }

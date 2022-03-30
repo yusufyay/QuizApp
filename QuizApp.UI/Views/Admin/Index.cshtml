@@ -1,9 +1,68 @@
-﻿
-@model List<QuizApp.Dto.article.ArticleDto>
+﻿@model List<QuizApp.Dto.article.ArticleDto>
 
-@foreach (var item in @Model)
-{
-    <h1>
-    @item.Title
-    </h1>
-}
+<style>
+    .container2 {
+        height: 200px;
+        overflow: auto
+    }
+
+    #pContent {
+        color: rebeccapurple
+    }
+
+</style>
+
+<select id="selectTitle" onchange="getParagraph()">
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <option value="@Model[i].Paragraph">@Model[i].Title</option>
+
+    }
+
+</select>
+<div class="container2">
+    <p id="pContent">@Model[0].Paragraph</p>
+</div>
+
+<div>
+    <div>
+        <h3 style="border:1px">Soru 1</h3>
+        <input type="text" placeholder="A)" />
+        <input type="text" placeholder="B)" />
+        <input type="text" placeholder="C)" />
+        <input type="text" placeholder="D)" />
+    </div>
+      <div>
+        <h3 style="border:1px">Soru 2</h3>
+        <input type="text" placeholder="A)" />
+        <input type="text" placeholder="B)" />
+        <input type="text" placeholder="C)" />
+        <input type="text" placeholder="D)" />
+    </div>
+      <div>
+        <h3 style="border:1px">Soru 3</h3>
+        <input type="text" placeholder="A)" />
+        <input type="text" placeholder="B)" />
+        <input type="text" placeholder="C)" />
+        <input type="text" placeholder="D)" />
+    </div>
+      <div>
+        <h3 style="border:1px">Soru 4</h3>
+        <input type="text" placeholder="A)" />
+        <input type="text" placeholder="B)" />
+        <input type="text" placeholder="C)" />
+        <input type="text" placeholder="D)" />
+    </div>
+
+</div>
+
+
+<script>
+    function getParagraph(){
+        const select = document.getElementById("selectTitle")
+        const content = select.options[select.selectedIndex].value;
+        document.getElementById("pContent").innerHTML = content;
+    }
+
+</script>

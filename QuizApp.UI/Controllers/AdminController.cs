@@ -18,8 +18,6 @@ namespace QuizApp.UI.Controllers
             HtmlWeb web = new HtmlWeb();
             var htmlDoc = web.Load(html);
 
-            //var node = htmlDoc.DocumentNode.SelectNodes("//body/div/div/main/div/div/section/div/div/div/div/div/div/div/a/h2");
-
             var nodeLinks = htmlDoc.DocumentNode.SelectNodes("//body/div/div/main/div/div/section/div/div/div/div/div/div/div/a[contains(@class,'SummaryItemHedLink-cgPsOZ cnoEIb summary-item-tracking__hed-link summary-item__hed-link')]");
 
             foreach (var nodeLink in nodeLinks)
@@ -29,33 +27,33 @@ namespace QuizApp.UI.Controllers
                 var  titleNode = htmlD.DocumentNode.SelectSingleNode("//body/div/div/main/article/div/header/div/div/h1");
                 var title = titleNode.InnerText;
 
+                var pNodes = htmlD.DocumentNode.SelectNodes("//body/div/div/main/article/div/div/div/div/div/div/div/p");
 
+                var paragraph = "";
+                foreach (var item in pNodes)
+                {
+                    var text = item.InnerText;
+                    paragraph += text;
+                }
 
 
                 var article = new ArticleDto
                 {
                     Title = title,
-                    Paragraph =""
+                    Paragraph = paragraph
                 };
                 articles.Add(article);
 
             }
 
-            // var aa = node2[0].GetAttributeValue("href", string.Empty);
-
-            //var articles = new List<ArticleDto>();
-
-            //foreach (var item in node)
-            //{
-            //    var article = new ArticleDto
-            //    {
-            //        Title = item.InnerHtml
-            //    };
-
-            //    articles.Add(article);
-            //}
-
             return View(articles);
+
+        }
+        
+
+        [HttpPost]
+        public IActionResult create()
+        {
 
         }
     }

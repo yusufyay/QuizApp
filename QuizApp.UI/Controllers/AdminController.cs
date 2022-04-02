@@ -49,13 +49,13 @@ namespace QuizApp.UI.Controllers
             return View(articles);
 
         }
-        
 
-        [HttpPost]
-        public IActionResult create()
-        {
 
-        }
+        //[HttpPost]
+        //public IActionResult create()
+        //{
+
+        //}
     }
 
 }
